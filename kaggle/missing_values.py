@@ -40,7 +40,7 @@ X_train, X_valid, y_train, y_valid = train_test_split(
 )
 
 # Shape of training data
-print(X_train.shape)
+print("X_train shape:", X_train.shape)
 
 # Number of missing values in each column of training data
 missing_val_count_by_column = (X_train.isnull().sum())
