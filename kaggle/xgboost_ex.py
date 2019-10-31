@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
@@ -69,7 +70,7 @@ preprocessor = ColumnTransformer(
 		('cat', categorical_transformer, categorical_cols)
 ])
 
-my_model = XGBRegressor(n_estimators=1000, learning_rate=0.05)
+my_model = XGBRegressor(n_estimators=1450, learning_rate=0.05)
 
 
 clf = Pipeline(
@@ -85,7 +86,7 @@ clf.fit(
 	X_train, y_train
 )
 
-
+'''
 # Preprocessong of validation data, get predictions
 preds_test = clf.predict(X_test)
 
@@ -97,4 +98,3 @@ output.to_csv('submission.csv', index=False)
 
 preds = clf.predict(X_valid)
 print("MAE:", mean_absolute_error(preds, y_valid))
-'''
